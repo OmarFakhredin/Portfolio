@@ -23,7 +23,7 @@
     if ($loggedIn){
         session_start();
         $_SESSION["username"]=$un;
-        header("location:../MainPage/main.html");
+        header("location:../MainPage/main.php");
     }else{
         header("location:../index.php");
     }
