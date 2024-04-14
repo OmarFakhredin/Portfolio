@@ -33,7 +33,7 @@
                     <input type="button" value="Cancel" onclick="ClearForm()" class="mButton">
                 </div>
             </form>
-            <a href="html/signup.html">Sign Up...</a>
+            <a href="signup.html">Sign Up...</a>
         </div>
     </div>
 

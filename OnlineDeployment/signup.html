@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="forms.css"> 
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px; width: 50%;"> 
+        <div class="title">
+            <h1>Sign Up</h1>
+        </div>
+
+        <form action="Backend/signup.php" method="POST" name="signup-form">
+            <div class="form-group">
+                <label for="un">User Name:</label>
+                <input type="text" name="username" class="txtfield" id="un">
+            </div>
+            <div class="form-group">
+                <label for="fn">First Name:</label>
+                <input type="text" name="firstname" class="txtfield" id="fn">
+            </div>
+            <div class="form-group">
+                <label for="ln">Last Name:</label>
+                <input type="text" name="lastname" class="txtfield" id="ln">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password:</label>
+                <input type="password" name="pass" class="txtfield" id="pass">
+            </div>
+            <div class="form-group">
+                <label for="confPass">Confirm Password:</label>
+                <input type="password" name="confirmPassword" class="txtfield" id="confPass">
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <div>
+                    <input type="radio" name="sex" checked id="r-male" value="m">
+                    <label for="r-male">Male</label>
+                    <input type="radio" name="sex" id="r-female" value="f">
+                    <label for="r-female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" name="birthdate" class="txtfield" id="birthdate">
+            </div>
+            <div class="form-group">
+                <input type="button" value="Sign Up" class="mButton" onclick="SignUp()">
+                <input type="button" value="Cancel" class="mButton" onclick="ClearForm()">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function SignUp() {
+            const mForm = document.querySelector("form[name='signup-form']");
+            const un = mForm.elements["username"].value;
+            const fn = mForm.elements["firstname"].value;
+            const ln = mForm.elements["lastname"].value;
+            const pass = mForm.elements["pass"].value;
+            const confPass = mForm.elements["confirmPassword"].value;
+            const sex = mForm.elements["sex"].value;
+            const birthday = mForm.elements["birthdate"].value;
+
+            if (pass !== confPass || pass === "") {
+                alert("Passwords must be equal.");
+            } else {
+                mForm.submit();
+            }
+        }
+
+        function ClearForm() {
+            const mForm = document.querySelector("form[name='signup-form']");
+            mForm.elements["username"].value = "";
+            mForm.elements["firstname"].value = "";
+            mForm.elements["lastname"].value = "";
+            mForm.elements["pass"].value = "";
+            mForm.elements["confirmPassword"].value = "";
+            mForm.elements["sex"].value = "m";
+            mForm.elements["birthdate"].value = "";
+        }
+    </script>
+</body>
+</html>
